@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>元菌 METAFLORA · 万亿活菌复合益生菌</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230A3D3D'/><text x='50' y='66' text-anchor='middle' fill='%23B8975A' font-size='40' font-family='serif'>M</text></svg>">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;600&display=swap">
+<style>
+  :root {
+    --ink: #1A2B2B; --ink-2: #4A5F5F; --ink-3: #8A9F9F;
+    --brand: #0A3D3D; --brand-light: #125C5C; --accent: #1A7A6E;
+    --gold: #B8975A; --gold-light: #D4B87A;
+    --bg: #FAF7F2; --white: #FFFFFF; --line: #E8E2D5; --soft: #F2EDE3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, PingFang SC, sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.9; font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+  /* ===== 导航 ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10, 43, 43, 0.82); backdrop-filter: blur(20px);
+    padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .logo { color: #fff; font-size: 16px; font-weight: 500; letter-spacing: 0.14em; text-decoration: none; display: flex; align-items: center; gap: 12px; }
+  .logo .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .logo .en { color: var(--gold-light); font-size: 13px; letter-spacing: 0.22em; }
+  .nav-links { display: flex; gap: 38px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; transition: color .3s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { color: var(--gold-light); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; border: 1px solid rgba(212,184,122,0.35); padding: 8px 22px; border-radius: 999px; transition: all .3s; }
+  .nav-cta:hover { background: rgba(212,184,122,0.12); border-color: var(--gold-light); }
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; width: 40px; height: 40px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; padding: 8px; }
+  .nav-burger span { display: block; width: 20px; height: 1.5px; background: #fff; border-radius: 2px; transition: all .3s; }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 92vh; display: flex; align-items: center; color: #fff;
+    background: linear-gradient(100deg, rgba(8,34,34,0.92) 0%, rgba(10,61,61,0.72) 42%, rgba(10,61,61,0.15) 72%), url('assets/hero.jpg') center/cover no-repeat;
+    padding: 160px 0 120px; position: relative;
+  }
+  .hero-kicker { display: inline-block; font-size: 11px; letter-spacing: 0.28em; color: var(--gold-light); border: 1px solid rgba(212,184,122,0.28); padding: 7px 18px; border-radius: 999px; margin-bottom: 36px; }
+  .hero h1 { font-family: 'Noto Serif SC', serif; font-size: 58px; font-weight: 300; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 28px; max-width: 620px; }
+  .hero h1 .em { color: var(--gold-light); font-weight: 400; }
+  .hero-desc { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 500px; line-height: 2; margin-bottom: 44px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-gold { background: var(--gold); color: #fff; padding: 16px 38px; border-radius: 999px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; transition: all .3s; display: inline-block; border: none; cursor: pointer; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(184,151,90,0.3); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 38px; border-radius: 999px; font-size: 14px; letter-spacing: 0.04em; text-decoration: none; transition: all .3s; display: inline-block; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); }
+
+  /* ===== 通用 section ===== */
+  section { padding: 120px 0; }
+  .section-label { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.18em; margin-bottom: 18px; }
+  .section-title { font-family: 'Noto Serif SC', serif; font-size: 38px; font-weight: 300; color: var(--ink); line-height: 1.35; margin-bottom: 18px; letter-spacing: -0.01em; }
+  .section-desc { font-size: 16px; color: var(--ink-2); max-width: 560px; line-height: 2; font-weight: 300; }
+
+  /* ===== 品牌叙事 ===== */
+  .story { background: var(--bg-white); text-align: center; }
+  .story blockquote {
+    font-family: 'Noto Serif SC', serif; font-size: 30px; font-weight: 300; line-height: 1.9;
+    color: var(--ink); max-width: 760px; margin: 0 auto; letter-spacing: 0.01em;
+  }
+  .story blockquote .em { color: var(--gold); }
+  .story .sub { margin-top: 28px; font-size: 15px; color: var(--ink-3); }
+
+  /* ===== 产品陈列 ===== */
+  .showcase { background: var(--brand); color: #fff; }
+  .showcase .section-label { color: var(--gold-light); }
+  .showcase .section-title { color: #fff; }
+  .showcase .section-desc { color: rgba(255,255,255,0.6); }
+  .show-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .show-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; overflow: hidden; transition: all .3s; }
+  .show-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.08); }
+  .show-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
+  .show-meta { padding: 24px 26px; }
+  .show-name { font-family: 'Noto Serif SC', serif; font-size: 19px; font-weight: 400; margin-bottom: 6px; }
+  .show-sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  /* ===== 三大价值 ===== */
+  .values { background: var(--bg); }
+  .val-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .val-card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 40px 32px; transition: all .3s; }
+  .val-card:hover { box-shadow: 0 12px 40px rgba(10,61,61,0.08); transform: translateY(-4px); }
+
+  /* ===== 细节画廊 ===== */
+  .gallery { background: var(--bg); padding: 0 0 120px; }
+  .gallery-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+  .g-item { position: relative; border-radius: 20px; overflow: hidden; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .g-tall, .g-a { height: 380px; }
+  .g-item figcaption { position: absolute; left: 18px; bottom: 16px; color: #fff; font-size: 13px; letter-spacing: 0.06em; background: rgba(10,43,43,0.55); backdrop-filter: blur(8px); padding: 7px 14px; border-radius: 999px; }
+  .val-no { font-family: 'Noto Serif SC', serif; font-size: 14px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 18px; }
+  .val-title { font-size: 20px; font-weight: 500; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .val-desc { font-size: 14px; color: var(--ink-2); line-height: 1.9; font-weight: 300; }
+
+  /* ===== 递送机理 ===== */
+  .mechanism { background: var(--white); }
+  .mech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 56px; border-top: 1px solid var(--line); }
+  .mech-step { padding: 40px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+  .mech-step:last-child { border-right: none; }
+  .mech-ic { width: 56px; height: 56px; border-radius: 50%; background: var(--soft); color: var(--brand); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .mech-ic svg { width: 26px; height: 26px; }
+  .mech-title { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+  .mech-desc { font-size: 14px; color: var(--ink-2); line-height: 1.9; font-weight: 300; }
+
+  /* ===== 日常节奏 ===== */
+  .rhythm { background: var(--bg); }
+  .rhythm-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .rhythm-img { border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(10,61,61,0.15); }
+  .rhythm-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
+  .rhythm-list { list-style: none; margin-top: 28px; }
+  .rhythm-list li { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--ink-2); }
+  .rhythm-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 11px; }
+
+  /* ===== 衔接检测 ===== */
+  .bridge { background: linear-gradient(160deg, #0C3F3F, #082E2E); color: #fff; text-align: center; }
+  .bridge h2 { font-family: 'Noto Serif SC', serif; font-size: 34px; font-weight: 300; margin-bottom: 18px; line-height: 1.5; }
+  .bridge p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 36px; line-height: 2; }
+
+  /* ===== FAQ / 规格 ===== */
+  .faq { background: var(--white); }
+  .faq-list { max-width: 760px; margin-top: 48px; }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
+  .faq-q { font-size: 17px; font-weight: 500; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .faq-a { font-size: 14px; color: var(--ink-2); line-height: 1.9; font-weight: 300; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+  .arrow { transition: transform .3s; color: var(--gold); font-size: 20px; }
+
+  /* ===== Footer ===== */
+  footer { background: #082B2B; color: rgba(255,255,255,0.5); padding: 56px 0 32px; font-size: 13px; line-height: 1.9; }
+  .footer-brand { color: rgba(255,255,255,0.9); font-size: 16px; letter-spacing: 0.14em; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-home { color: var(--gold-light); font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border: 1px solid rgba(212,184,122,0.3); padding: 7px 18px; border-radius: 999px; transition: all 0.3s; font-weight: 400; }
+  .footer-home:hover { background: rgba(212,184,122,0.12); border-color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 28px; font-size: 12px; color: rgba(255,255,255,0.35); }
+
+  /* ===== 滚动动效 ===== */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  /* ===== Toast ===== */
+  .toast { position: fixed; left: 50%; bottom: 48px; transform: translateX(-50%) translateY(20px); background: #0A3D3D; color: #fff; padding: 14px 28px; border-radius: 999px; font-size: 14px; box-shadow: 0 12px 40px rgba(10,61,61,0.3); opacity: 0; pointer-events: none; transition: all .35s; z-index: 200; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .nav-cta { display: none; }
+    .nav-burger { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; background: rgba(8,34,34,0.98);
+      padding: 12px 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    body.menu-open .nav-links { display: flex; }
+    .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 15px 4px; font-size: 15px; color: rgba(255,255,255,0.82); }
+    body.menu-open .nav-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+    body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .hero h1 { font-size: 32px; }
+    .hero { min-height: auto; padding: 120px 0 80px; }
+    .hero-cta { flex-direction: column; gap: 12px; }
+    .hero-cta a { text-align: center; width: 100%; }
+    section { padding: 72px 0; }
+    .section-title { font-size: 27px; }
+    .story blockquote { font-size: 22px; }
+    .show-grid, .val-grid, .mech-grid, .gallery-grid { grid-template-columns: 1fr; }
+    .g-tall, .g-a { height: 230px; }
+    .mech-step { border-right: none; }
+    .rhythm-flex { grid-template-columns: 1fr; gap: 32px; }
+    .rhythm-img { order: -1; }
+    .rhythm-img img { height: 300px; }
+    .show-card img { height: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="../美诺微官网首页-mockup/美诺微官网首页.html" class="logo" title="返回美诺微首页"><span class="dot"></span>元菌 <span class="en">METAFLORA</span></a>
+    <ul class="nav-links">
+      <li><a href="#product">产品</a></li>
+      <li><a href="#values">核心价值</a></li>
+      <li><a href="#mechanism">递送科技</a></li>
+      <li><a href="#rhythm">日常用法</a></li>
+    </ul>
+    <a href="#consult" class="nav-cta" onclick="event.preventDefault(); demoToast('顾问咨询即将开放，敬请期待')">预约顾问</a>
+    <button class="nav-burger" aria-label="打开菜单" onclick="document.body.classList.toggle('menu-open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="container">
+    <span class="hero-kicker">万亿活菌 · 复合益生菌 · 日常肠道养护</span>
+    <h1>把一整个微生态，<br><span class="em">装进每一天。</span></h1>
+    <p class="hero-desc">元菌 METAFLORA 以万亿级活菌与肠溶包埋递送，为日常肠道养护提供温和而持续的营养支持。先读懂自己的菌群，再选择适合的菌株。</p>
+    <div class="hero-cta">
+      <a href="#product" class="btn-gold">了解产品</a>
+      <a href="#consult" class="btn-ghost" onclick="event.preventDefault(); demoToast('顾问咨询即将开放，敬请期待')">预约顾问</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 品牌叙事 ===== -->
+<section class="story">
+  <div class="container reveal">
+    <blockquote>
+      你的肠道里，住着约 <span class="em">38 万亿</span> 微生物。<br>
+      它们不是过客，而是你身体里一支沉默的队伍。
+    </blockquote>
+    <p class="sub">元菌相信，养护肠道，是养护这支队伍的平衡，而非一次突击。</p>
+  </div>
+</section>
+
+<!-- ===== 产品陈列 ===== -->
+<section class="showcase" id="product">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">PRODUCT</div>
+      <h2 class="section-title">一套为日常养护设计的产品形态</h2>
+      <p class="section-desc">独立条包便于携带与定量，礼盒用于周期养护，胶囊形态承担肠溶递送。</p>
+    </div>
+    <div class="show-grid">
+      <div class="show-card reveal">
+        <img src="assets/box-cn.jpg" alt="元菌 METAFLORA 礼盒包装（中文版）">
+        <div class="show-meta">
+          <div class="show-name">周期养护礼盒</div>
+          <div class="show-sub">按月度周期配置，独立条包整齐收纳，适合长期日常养护。</div>
+        </div>
+      </div>
+      <div class="show-card reveal reveal-delay-1">
+        <img src="assets/sachet-cn.jpg" alt="元菌 METAFLORA 独立条包（中文版）">
+        <div class="show-meta">
+          <div class="show-name">独立条包</div>
+          <div class="show-sub">一次一条，定量取用，随身可带，温水冲调或直接口服。</div>
+        </div>
+      </div>
+      <div class="show-card reveal reveal-delay-2">
+        <img src="assets/capsule.jpg" alt="元菌 METAFLORA 肠溶胶囊">
+        <div class="show-meta">
+          <div class="show-name">肠溶胶囊</div>
+          <div class="show-sub">双层包埋结构，帮助活菌穿越胃酸，在肠道内释放。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 细节画廊 ===== -->
+<section class="gallery">
+  <div class="container">
+    <div class="gallery-grid">
+      <figure class="g-item g-tall reveal"><img src="assets/flatlay.jpg" alt="产品全家福周期配置"><figcaption>全家福 · 周期配置</figcaption></figure>
+      <figure class="g-item g-a reveal"><img src="assets/powder.jpg" alt="益生菌菌粉质地微距"><figcaption>菌粉 · 细腻质地</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 三大价值 ===== -->
+<section class="values" id="values">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">WHY METAFLORA</div>
+      <h2 class="section-title">三个值得被认真对待的细节</h2>
+      <p class="section-desc">不夸大、不承诺，把基础做扎实，是元菌对日常养护的态度。</p>
+    </div>
+    <div class="val-grid">
+      <div class="val-card reveal">
+        <div class="val-no">01</div>
+        <div class="val-title">万亿级活菌添加</div>
+        <div class="val-desc">以万亿级活菌量级为配方基础，关注出厂添加量与活菌留存，而非仅以概念包装。具体活菌数以产品标签为准。</div>
+      </div>
+      <div class="val-card reveal reveal-delay-1">
+        <div class="val-no">02</div>
+        <div class="val-title">肠溶包埋 · 活着抵达</div>
+        <div class="val-desc">双层包埋结构在胃酸环境中保护菌体，到达肠道后再释放，减少半路损耗，让活菌更有机会抵达定植位置。</div>
+      </div>
+      <div class="val-card reveal reveal-delay-2">
+        <div class="val-no">03</div>
+        <div class="val-title">复合菌株 · 因人而异</div>
+        <div class="val-desc">采用复合菌株思路，并可结合个人肠道检测结果做搭配建议；菌群没有统一答案，适合自己的才是养护。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 递送机理 ===== -->
+<section class="mechanism" id="mechanism">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">DELIVERY TECHNOLOGY</div>
+      <h2 class="section-title">从入口到肠道，一条完整的递送路径</h2>
+      <p class="section-desc">活菌最大的敌人是胃酸。肠溶包埋，是为它们争取一段安全的路。</p>
+    </div>
+    <div class="mech-grid reveal">
+      <div class="mech-step">
+        <div class="mech-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
+        <div class="mech-title">外层保护</div>
+        <div class="mech-desc">肠溶包衣在胃部酸性环境下保持稳定，包裹住内部菌体，不被胃酸提前分解。</div>
+      </div>
+      <div class="mech-step">
+        <div class="mech-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16"/><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg></div>
+        <div class="mech-title">穿越胃酸</div>
+        <div class="mech-desc">随胃排空进入肠道，包衣在中性偏碱的肠道环境中才开始溶解，菌体得以完整通过。</div>
+      </div>
+      <div class="mech-step">
+        <div class="mech-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="12" r="2.5"/><circle cx="15" cy="8" r="2"/><circle cx="17" cy="16" r="2.5"/><path d="M9 13l3 1M15 10l1 3"/></svg></div>
+        <div class="mech-title">肠道释放</div>
+        <div class="mech-desc">包衣溶解，活菌在肠道局部释放，参与日常菌群平衡的营养支持。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 日常节奏 ===== -->
+<section class="rhythm" id="rhythm">
+  <div class="container rhythm-flex">
+    <div class="rhythm-img reveal">
+      <img src="assets/ritual.jpg" alt="每日温水冲调的服用场景">
+    </div>
+    <div class="reveal">
+      <div class="section-label">DAILY RITUAL</div>
+      <h2 class="section-title">养护，是每天一件小事</h2>
+      <p class="section-desc">不追求突击式补充，而是把它变成温和、可持续的日常节奏。</p>
+      <ul class="rhythm-list">
+        <li>每日一条，温水（约 37℃ 以下）冲调或直接口服，避免高温杀灭活菌。</li>
+        <li>建议随餐或餐后服用，胃内食物可进一步缓冲酸性环境。</li>
+        <li>规律作息与均衡饮食，是益生菌发挥日常营养支持的基础。</li>
+        <li>按周期连续使用，并可结合复测观察个人菌群变化。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 衔接检测 ===== -->
+<section class="bridge" id="consult">
+  <div class="container reveal">
+    <h2>先读懂自己的菌群，<br>再选择适合的菌株。</h2>
+    <p>元菌是日常养护的一环。在选择产品之前，美诺微肠道检测会先呈现你的菌群结构与平衡状态，让搭配建议有据可依。</p>
+    <a href="../美诺微官网首页-mockup/美诺微官网首页.html#detect" class="btn-gold">前往肠道检测</a>
+  </div>
+</section>
+
+<!-- ===== FAQ / 规格 ===== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">常见问题</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-q">这款产品适合什么人？<span class="arrow">+</span></div>
+        <div class="faq-a">适合希望进行日常肠道养护、关注菌群平衡的健康成年人，作为膳食营养补充。孕妇、哺乳期、正在服药或有基础疾病者，建议先咨询专业人士。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以直接治病吗？<span class="arrow">+</span></div>
+        <div class="faq-a">不可以。元菌是膳食营养补充食品，不能替代药物，也不用于诊断、治疗或预防任何疾病。如有明确疾病，请及时就医。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">活菌数与规格是多少？<span class="arrow">+</span></div>
+        <div class="faq-a">具体出厂活菌数、条包规格与成分以正式产品标签为准，本页面为品牌概念提案，量产标签将在注册核定后公示。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何保存？<span class="arrow">+</span></div>
+        <div class="faq-a">按产品标签要求置于阴凉干燥处，避免高温与潮湿；开封后尽快食用完毕。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-brand"><span>元菌 METAFLORA · 美诺微旗下益生菌概念产品</span><a class="footer-home" href="../美诺微官网首页-mockup/美诺微官网首页.html">← 返回美诺微官网</a></div>
+    <p>本页面为品牌概念设计提案，品牌名称「元菌 METAFLORA」为创意候选，须经商标注册核定后方可正式使用；产品成分、活菌数、规格与定价以最终备案标签及正式公示为准。</p>
+    <div class="footer-bottom">
+      本产品为膳食营养补充食品，不替代药物，不用于疾病的诊断、治疗或预防。孕期、哺乳期、服药期及基础疾病人群请先咨询专业人士。图片为设计示意。美诺微 · 肠道年轻态科学管理。
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">该功能即将开放，敬请期待</div>
+
+<script>
+  // 滚动淡入
+  const reveals = document.querySelectorAll('.reveal, .show-card, .val-card, .mech-step, .faq-item');
+  reveals.forEach((el, i) => {
+    el.classList.add('reveal');
+    if (i % 3 === 1) el.classList.add('reveal-delay-1');
+    if (i % 3 === 2) el.classList.add('reveal-delay-2');
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ 折叠
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+
+  // 占位 toast
+  const toast = document.getElementById('toast');
+  let timer;
+  window.demoToast = function(msg) {
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(timer); timer = setTimeout(() => toast.classList.remove('show'), 2200);
+  };
+</script>
+
+</body>
+</html>
