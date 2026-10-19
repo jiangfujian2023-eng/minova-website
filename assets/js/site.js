@@ -1,7 +1,90 @@
 (function () {
   var form = document.getElementById("consult-form");
   var navCheck = document.getElementById("nav-check");
-  var EMAIL = "placeholder@mnwei.com";
+  var CONTACT = {
+    companyName: "美诺微",
+    companyLegal: "",
+    email: "",
+    phone: "",
+    wechatQr: "",
+    address: "",
+    creditCode: "",
+    icp: "",
+    emailPending: true
+  };
+  var configNode = document.getElementById("minova-contact");
+  if (configNode) {
+    try {
+      var parsed = JSON.parse(configNode.textContent);
+      Object.keys(CONTACT).forEach(function (key) {
+        if (parsed[key] == null) return;
+        CONTACT[key] = key === "emailPending" ? Boolean(parsed[key]) : String(parsed[key]).trim();
+      });
+    } catch (error) {
+      /* 配置不是合法 JSON 时，页面保留占位文案 */
+    }
+  }
+  var EMAIL = CONTACT.email;
+
+  function pending(label) {
+    return " <span class=\"tag-pending\">" + label + "</span>";
+  }
+
+  function fillContact() {
+    document.querySelectorAll("[data-contact=email]").forEach(function (node) {
+      if (!EMAIL) {
+        node.textContent = "邮箱待替换";
+        node.removeAttribute("href");
+        return;
+      }
+      node.textContent = EMAIL;
+      node.setAttribute("href", "mailto:" + EMAIL);
+    });
+    document.querySelectorAll("[data-contact=email-note]").forEach(function (node) {
+      node.hidden = !CONTACT.emailPending;
+    });
+    document.querySelectorAll("[data-contact=phone]").forEach(function (node) {
+      if (!CONTACT.phone) {
+        node.innerHTML = "电话尚未提供" + pending("待补充");
+        return;
+      }
+      node.innerHTML = "<a href=\"tel:" + CONTACT.phone.replace(/\s/g, "") + "\">" + CONTACT.phone + "</a>";
+    });
+    document.querySelectorAll("[data-contact=address]").forEach(function (node) {
+      node.innerHTML = CONTACT.address
+        ? CONTACT.address
+        : "地址尚未提供" + pending("待补充");
+    });
+    document.querySelectorAll("[data-contact=legal]").forEach(function (node) {
+      var parts = [];
+      parts.push(CONTACT.companyLegal || "公司主体");
+      parts.push(CONTACT.creditCode || "统一社会信用代码");
+      parts.push(CONTACT.address || "地址");
+      parts.push(CONTACT.icp || "备案号");
+      var complete = CONTACT.companyLegal && CONTACT.creditCode && CONTACT.address && CONTACT.icp;
+      node.innerHTML = parts.join(" · ") + (complete ? "" : pending("待补充"));
+    });
+    document.querySelectorAll("[data-contact=company]").forEach(function (node) {
+      if (CONTACT.companyName) node.textContent = CONTACT.companyName;
+    });
+    document.querySelectorAll("[data-contact=qr-note]").forEach(function (node) {
+      node.innerHTML = CONTACT.wechatQr
+        ? "微信二维码见本页咨询区"
+        : "微信二维码" + pending("待替换");
+    });
+    document.querySelectorAll("[data-contact=qr]").forEach(function (node) {
+      if (!CONTACT.wechatQr) {
+        node.innerHTML = "<span>微信二维码<br>待替换</span>";
+        node.setAttribute("aria-label", "微信二维码待替换");
+        return;
+      }
+      node.innerHTML = "<img src=\"" + CONTACT.wechatQr + "\" alt=\"美诺微微信二维码\" width=\"132\" height=\"132\">";
+      node.setAttribute("aria-label", "美诺微微信二维码");
+    });
+    if (form && EMAIL) form.setAttribute("action", "mailto:" + EMAIL);
+  }
+
+  fillContact();
 
   document.querySelectorAll("#nav-menu a").forEach(function (link) {
     link.addEventListener("click", function () {
@@ -30,7 +113,7 @@
 
   function compose() {
     return [
-      "美诺微咨询（网站表单，邮箱待替换）",
+      "美诺微咨询" + (CONTACT.emailPending || !EMAIL ? "（邮箱待替换）" : ""),
       "姓名：" + field("name"),
       "联系方式：" + field("contact"),
       "阶段：" + field("stage"),
