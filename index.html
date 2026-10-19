@@ -29,31 +29,35 @@
   "name": "美诺微 MINOVA",
   "url": "https://mnwei.com/",
   "inLanguage": "zh-CN",
-  "description": "美诺微以幽门螺杆菌根除之后的肠道菌群健康评估为入口，提供解读与个体化养护参考。"
+  "description": "美诺微以幽门螺杆菌根除之后的肠道菌群健康评估为入口，提供解读与个体化养护参考。",
+  "publisher": {
+    "@type": "Organization",
+    "name": "美诺微（杭州）健康科技有限公司",
+    "telephone": "+86-135-1680-3984",
+    "url": "https://mnwei.com/"
+  }
 }
 </script>
 </head>
 <body>
 <!--
-  联系方式只改下面这一段 JSON。脚本会写入咨询区、页脚和表单收件邮箱。
-  companyName    品牌名
-  companyLegal   公司主体全称；空则显示「待补充」
-  email          咨询邮箱
-  emailPending   仍是占位邮箱时为 true，换成真实邮箱后改为 false
-  phone          电话；空则显示「尚未提供」
-  wechatQr       微信二维码图片路径，例如 assets/img/wechat-qr.png；空则显示「待替换」
-  address        地址；空则显示「待补充」
-  creditCode     统一社会信用代码；空则显示「待补充」
-  icp            备案号；空则显示「待补充」
+  联系方式只改下面这一段 JSON。脚本会写入咨询区、页脚、版权和拨打电话的链接。
+  companyName     品牌名
+  companyLegal    公司主体全称
+  phone           咨询电话，只写数字，用于 tel: 链接
+  phoneDisplay    页面上的电话写法
+  testPrice       肠道菌群检测标价，只写数字；空则不显示价格
+  address         地址；空则不显示
+  creditCode      统一社会信用代码；空则不显示
+  icp             备案号；空则不显示
 -->
 <script id="minova-contact" type="application/json">
 {
   "companyName": "美诺微",
-  "companyLegal": "",
-  "email": "placeholder@mnwei.com",
-  "emailPending": true,
-  "phone": "",
-  "wechatQr": "",
+  "companyLegal": "美诺微（杭州）健康科技有限公司",
+  "phone": "13516803984",
+  "phoneDisplay": "135 1680 3984",
+  "testPrice": "2199",
   "address": "",
   "creditCode": "",
   "icp": ""
@@ -328,6 +332,7 @@
               <p>再测一次看变化。节奏按用药节点来，不套固定周期。</p>
             </li>
           </ol>
+          <p class="price" data-contact="price"><b>肠道菌群检测 ¥2199</b><span>具体项目以咨询为准</span></p>
           <div class="ladder">
             <div class="rung">
               <b>一</b>
@@ -554,15 +559,14 @@
               <img src="assets/img/expert-consult.jpg" alt="木质托盘上的培养皿、粉末与纸张，表示一次安静的咨询，而不是诊疗场景" width="1448" height="1086" loading="lazy" decoding="async">
             </picture>
           </figure>
-          <div class="qr-row">
-            <div class="qr" data-contact="qr" role="img" aria-label="微信二维码待替换">
-              <span>微信二维码<br>待替换</span>
-            </div>
-            <p class="contact-lines">邮箱 <a data-contact="email" href="mailto:placeholder@mnwei.com">placeholder@mnwei.com</a><span data-contact="email-note" class="tag-pending">待替换</span><br><span data-contact="phone">电话尚未提供</span><br><span data-contact="address">地址尚未提供</span></p>
-          </div>
+          <p class="contact-lines">
+            <span data-contact="legal">美诺微（杭州）健康科技有限公司</span><br>
+            <span data-contact="phone">咨询电话：<a href="tel:13516803984">135 1680 3984</a></span>
+          </p>
+          <p class="price" data-contact="price"><b>肠道菌群检测 ¥2199</b><span>具体项目以咨询为准</span></p>
         </div>
         <div>
-          <form id="consult-form" action="mailto:placeholder@mnwei.com" method="post" enctype="text/plain">
+          <form id="consult-form" action="#consult" onsubmit="return false">
             <div class="fields two">
               <label>怎么称呼
                 <input name="name" type="text" autocomplete="name" required maxlength="40" placeholder="姓名">
@@ -598,14 +602,14 @@
             <div class="form-actions">
               <button class="btn btn-gold" type="submit">整理咨询内容</button>
             </div>
-            <p class="form-hint">这是静态页面，内容不会上传。提交后生成一段文字，供你复制到微信，或打开邮件草稿。</p>
+            <p class="form-hint">这是静态页面，内容不会上传。整理好之后复制这段话，再拨打咨询电话。</p>
             <div class="result" id="consult-result" hidden>
               <label>咨询内容
                 <textarea id="consult-output" readonly></textarea>
               </label>
               <div class="form-actions">
                 <button class="btn btn-ink" type="button" id="copy-consult">复制咨询内容</button>
-                <button class="btn btn-ink" type="button" id="mail-consult">用邮件发送</button>
+                <a class="btn btn-ink" id="call-consult" data-contact="tel" href="tel:13516803984">拨打咨询电话</a>
               </div>
             </div>
           </form>
@@ -623,7 +627,7 @@
         <h2 data-contact="company">美诺微</h2>
         <p class="en">MINOVA</p>
         <p>从幽门螺杆菌根除之后的菌群看起。年轻态是更长期的说法，不是本页的承诺。</p>
-        <p data-contact="legal">公司主体 · 统一社会信用代码 · 地址 · 备案号<span class="tag-pending">待补充</span></p>
+        <p data-contact="legal">美诺微（杭州）健康科技有限公司</p>
         <p>mnwei.com</p>
       </div>
       <div>
@@ -639,9 +643,7 @@
       </div>
       <div>
         <p style="color:var(--ivory);font-family:var(--serif)">联系</p>
-        <p><a data-contact="email" href="mailto:placeholder@mnwei.com">placeholder@mnwei.com</a> <span data-contact="email-note" class="tag-pending">待替换</span></p>
-        <p data-contact="phone">电话尚未提供</p>
-        <p data-contact="qr-note">微信二维码 <span class="tag-pending">待替换</span></p>
+        <p data-contact="phone">咨询电话：<a href="tel:13516803984">135 1680 3984</a></p>
         <p>不提供在线诊疗。</p>
       </div>
     </div>
@@ -660,7 +662,7 @@
       </ol>
       <p>页面中的机制、证据分级和研究数字，整理自《幽门螺杆菌对肠道菌群的破坏机制与修复方案》循证综述（编制日期 2026 年 10 月 16 日）及其所列文献。两项关于根除率的荟萃分析（40 项 / 8924 例，21 项 / 3520 例）仅在综述正文中转述，未给出单独题录，故本页不另编参考文献。综述同时声明：菌群组成与功能推断来自测序，属预测性结论；临床方案应由执业医师决定。</p>
     </details>
-    <p class="legal">© 2026 美诺微 MINOVA · mnwei.com · 本页为静态介绍，未接入在线交易与在线诊疗。</p>
+    <p class="legal" data-contact="copyright">©2026 美诺微（杭州）健康科技有限公司 · mnwei.com · 本页为静态介绍，未接入在线交易与在线诊疗。</p>
   </div>
 </footer>
 <script src="assets/js/site.js"></script>

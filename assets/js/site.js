@@ -4,13 +4,12 @@
   var CONTACT = {
     companyName: "美诺微",
     companyLegal: "",
-    email: "",
     phone: "",
-    wechatQr: "",
+    phoneDisplay: "",
+    testPrice: "",
     address: "",
     creditCode: "",
-    icp: "",
-    emailPending: true
+    icp: ""
   };
   var configNode = document.getElementById("minova-contact");
   if (configNode) {
@@ -18,70 +17,50 @@
       var parsed = JSON.parse(configNode.textContent);
       Object.keys(CONTACT).forEach(function (key) {
         if (parsed[key] == null) return;
-        CONTACT[key] = key === "emailPending" ? Boolean(parsed[key]) : String(parsed[key]).trim();
+        CONTACT[key] = String(parsed[key]).trim();
       });
     } catch (error) {
-      /* 配置不是合法 JSON 时，页面保留占位文案 */
+      /* 配置不是合法 JSON 时，页面保留已写好的文案 */
     }
   }
-  var EMAIL = CONTACT.email;
-
-  function pending(label) {
-    return " <span class=\"tag-pending\">" + label + "</span>";
-  }
+  var PHONE_DIGITS = CONTACT.phone.replace(/\D/g, "");
 
   function fillContact() {
-    document.querySelectorAll("[data-contact=email]").forEach(function (node) {
-      if (!EMAIL) {
-        node.textContent = "邮箱待替换";
-        node.removeAttribute("href");
-        return;
-      }
-      node.textContent = EMAIL;
-      node.setAttribute("href", "mailto:" + EMAIL);
-    });
-    document.querySelectorAll("[data-contact=email-note]").forEach(function (node) {
-      node.hidden = !CONTACT.emailPending;
-    });
+    var phoneLabel = CONTACT.phoneDisplay || CONTACT.phone;
     document.querySelectorAll("[data-contact=phone]").forEach(function (node) {
-      if (!CONTACT.phone) {
-        node.innerHTML = "电话尚未提供" + pending("待补充");
+      if (!PHONE_DIGITS) {
+        node.textContent = "";
         return;
       }
-      node.innerHTML = "<a href=\"tel:" + CONTACT.phone.replace(/\s/g, "") + "\">" + CONTACT.phone + "</a>";
+      node.innerHTML = "咨询电话：<a href=\"tel:" + PHONE_DIGITS + "\">" + phoneLabel + "</a>";
     });
-    document.querySelectorAll("[data-contact=address]").forEach(function (node) {
-      node.innerHTML = CONTACT.address
-        ? CONTACT.address
-        : "地址尚未提供" + pending("待补充");
+    document.querySelectorAll("[data-contact=tel]").forEach(function (node) {
+      if (PHONE_DIGITS) node.setAttribute("href", "tel:" + PHONE_DIGITS);
     });
     document.querySelectorAll("[data-contact=legal]").forEach(function (node) {
       var parts = [];
-      parts.push(CONTACT.companyLegal || "公司主体");
-      parts.push(CONTACT.creditCode || "统一社会信用代码");
-      parts.push(CONTACT.address || "地址");
-      parts.push(CONTACT.icp || "备案号");
-      var complete = CONTACT.companyLegal && CONTACT.creditCode && CONTACT.address && CONTACT.icp;
-      node.innerHTML = parts.join(" · ") + (complete ? "" : pending("待补充"));
+      if (CONTACT.companyLegal) parts.push(CONTACT.companyLegal);
+      if (CONTACT.creditCode) parts.push(CONTACT.creditCode);
+      if (CONTACT.address) parts.push(CONTACT.address);
+      if (CONTACT.icp) parts.push(CONTACT.icp);
+      if (parts.length) node.textContent = parts.join(" · ");
     });
     document.querySelectorAll("[data-contact=company]").forEach(function (node) {
       if (CONTACT.companyName) node.textContent = CONTACT.companyName;
     });
-    document.querySelectorAll("[data-contact=qr-note]").forEach(function (node) {
-      node.innerHTML = CONTACT.wechatQr
-        ? "微信二维码见本页咨询区"
-        : "微信二维码" + pending("待替换");
+    document.querySelectorAll("[data-contact=copyright]").forEach(function (node) {
+      var name = CONTACT.companyLegal || CONTACT.companyName;
+      if (!name) return;
+      node.textContent = "©2026 " + name + " · mnwei.com · 本页为静态介绍，未接入在线交易与在线诊疗。";
     });
-    document.querySelectorAll("[data-contact=qr]").forEach(function (node) {
-      if (!CONTACT.wechatQr) {
-        node.innerHTML = "<span>微信二维码<br>待替换</span>";
-        node.setAttribute("aria-label", "微信二维码待替换");
+    document.querySelectorAll("[data-contact=price]").forEach(function (node) {
+      if (!CONTACT.testPrice) {
+        node.hidden = true;
         return;
       }
-      node.innerHTML = "<img src=\"" + CONTACT.wechatQr + "\" alt=\"美诺微微信二维码\" width=\"132\" height=\"132\">";
-      node.setAttribute("aria-label", "美诺微微信二维码");
+      node.hidden = false;
+      node.innerHTML = "<b>肠道菌群检测 ¥" + CONTACT.testPrice + "</b><span>具体项目以咨询为准</span>";
     });
-    if (form && EMAIL) form.setAttribute("action", "mailto:" + EMAIL);
   }
 
   fillContact();
@@ -104,7 +83,6 @@
   var panel = document.getElementById("consult-result");
   var output = document.getElementById("consult-output");
   var copyBtn = document.getElementById("copy-consult");
-  var mailBtn = document.getElementById("mail-consult");
 
   function field(name) {
     var value = new FormData(form).get(name);
@@ -113,7 +91,7 @@
 
   function compose() {
     return [
-      "美诺微咨询" + (CONTACT.emailPending || !EMAIL ? "（邮箱待替换）" : ""),
+      "美诺微咨询",
       "姓名：" + field("name"),
       "联系方式：" + field("contact"),
       "阶段：" + field("stage"),
@@ -165,10 +143,4 @@
     }, 2200);
   });
 
-  mailBtn.addEventListener("click", function () {
-    var text = output.value || compose();
-    window.location.href = "mailto:" + EMAIL
-      + "?subject=" + encodeURIComponent("美诺微咨询")
-      + "&body=" + encodeURIComponent(text);
-  });
 })();
