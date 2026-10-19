@@ -67,7 +67,8 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top" aria-label="美诺微 MINOVA，回到页首">
-      <span class="brand-mark">
+      <!-- 新标志未到。显示时去掉 hidden。文件：assets/img/logo-mark.webp 、 assets/img/logo-mark.png -->
+      <span class="brand-mark" hidden>
         <picture>
           <source type="image/webp" srcset="assets/img/logo-mark.webp">
           <img src="assets/img/logo-mark.png" alt="" width="40" height="40">
@@ -119,17 +120,11 @@
       <div class="hero-copy">
         <p class="eyebrow"><span>01</span>幽门螺杆菌 · 肠道菌群</p>
         <h1 id="hero-title">幽门螺杆菌要根除。<br>肠道菌群，需要被看见。</h1>
-        <p class="lede">根除听医嘱。根除之后，菌群是否受影响因人而异——美诺微帮你在根除前后各留一份基线，看清变化，再决定怎么养。</p>
+        <p class="lede">根除听医嘱。菌群是否受影响因人而异，前后各留一份记录。</p>
         <div class="btn-row">
           <a class="btn btn-gold" href="#consult">预约咨询</a>
           <a class="btn btn-line" href="#path">了解检测</a>
         </div>
-        <p class="hero-note">本网站内容仅供健康科普参考，不能替代医生诊断与治疗。检测用于健康评估，方案请遵医嘱。</p>
-        <ul class="hero-points">
-          <li><b>根除前</b><span>留下一份基线</span></li>
-          <li><b>疗程中</b><span>治疗听医生的</span></li>
-          <li><b>疗程后</b><span>解读、养护、再评估</span></li>
-        </ul>
       </div>
     </div>
     <div class="curve" aria-hidden="true">
@@ -141,218 +136,70 @@
 
   <section class="sec" id="why" aria-labelledby="why-title">
     <div class="wrap">
-      <header class="sec-head">
-        <p class="eyebrow"><span>02</span>为何重要</p>
-        <h2 id="why-title">根除值得做。菌群会不会受影响，因人而异。</h2>
-      </header>
       <div class="split">
-        <div class="prose">
-          <p>根除是医生的决定。溃疡、胃癌家族史，或胃黏膜已经萎缩、肠化，共识通常建议处理。用哪一种方案，由接诊医生定。</p>
-          <p>根除可能影响肠道菌群，因人而异。多数人不会腹泻。许多人在八周到一年里接近原来的水平。回到用药前，也不等于回到理想状态。</p>
-        </div>
+        <header class="sec-head">
+          <p class="eyebrow"><span>02</span>为何重要</p>
+          <h2 id="why-title">根除值得做。变化因人而异。</h2>
+          <p class="lede">菌群会不会受影响，因人而异。多数人不会腹泻。</p>
+        </header>
         <figure class="frame">
           <svg viewBox="0 0 800 600" aria-hidden="true">
             <rect width="800" height="600" fill="#0F3D3E"/>
             <ellipse cx="400" cy="310" rx="210" ry="168" fill="none" stroke="#A9C2B5" stroke-width="1.5" opacity="0.8"/>
             <ellipse cx="400" cy="310" rx="150" ry="112" fill="#164A48"/>
-            <path d="M300 250c40-70 160-70 200 10" fill="none" stroke="#C8A96A" stroke-width="2"/>
-            <circle cx="470" cy="230" r="7" fill="#C8A96A"/>
-            <circle cx="492" cy="246" r="3" fill="#F7F4EE" opacity="0.8"/>
-            <path d="M250 360c80 70 220 70 300-10" fill="none" stroke="#A9C2B5" stroke-width="1.2" opacity="0.7"/>
           </svg>
           <picture>
             <source type="image/webp" srcset="assets/img/hp-stomach.webp">
-            <img src="assets/img/hp-stomach.jpg" alt="玻璃器皿与培养皿的实验室静物，暖光下提示幽门螺杆菌根除发生在胃，菌群评估看的是肠道" width="1448" height="1086" loading="lazy" decoding="async">
+            <img src="assets/img/hp-stomach.jpg" alt="玻璃器皿与培养皿的实验室静物，提示根除发生在胃，菌群评估看的是肠道" width="1200" height="900" loading="lazy" decoding="async">
           </picture>
         </figure>
-      </div>
-      <div class="facts">
-        <article class="fact">
-          <i>怎么理解</i>
-          <b>可能影响，因人而异</b>
-          <span>抗生素和抑酸药可能作用到共生菌。每个人感觉不同。</span>
-        </article>
-        <article class="fact">
-          <i>症状</i>
-          <b>多数人并不腹泻</b>
-          <span>测到菌群变化，不等于一定腹泻。多数人吃完没有明显不适。</span>
-        </article>
-        <article class="fact">
-          <i>回落窗口</i>
-          <b>许多人是八周到一年</b>
-          <span>这个窗口里，组成常接近原来。个别方案可能更慢。</span>
-        </article>
       </div>
     </div>
   </section>
 
-  <section class="sec mist" id="change" aria-labelledby="change-title">
+  <section class="sec mist cap" id="change" aria-labelledby="change-title">
+    <figure class="bleed">
+      <svg viewBox="0 0 800 600" aria-hidden="true">
+        <rect width="800" height="600" fill="#143f40"/>
+      </svg>
+      <picture>
+        <source type="image/webp" srcset="assets/img/antibiotic-impact.webp">
+        <img src="assets/img/antibiotic-impact.jpg" alt="培养皿与玻璃器皿的静物，示意用药期间肠道群落可能波动" width="1200" height="900" loading="lazy" decoding="async">
+      </picture>
+    </figure>
     <div class="wrap">
       <header class="sec-head">
-        <p class="eyebrow"><span>03</span>菌群发生了什么</p>
-        <h2 id="change-title">三条通路，加上一条诚实的时间线。</h2>
-        <p class="lede">根除可能影响肠道菌群，因人而异。数字和出处收在「研究依据」里，不是你的化验单。</p>
+        <p class="eyebrow"><span>03</span>菌群变化</p>
+        <h2 id="change-title">可能发生，不是必定。</h2>
+        <p class="lede">许多人在八周到一年里接近原来。个别方案可能更慢。</p>
       </header>
-      <div class="cards three">
-        <article class="card">
-          <div class="idx">通路一</div>
-          <h3>胃里的环境变了</h3>
-          <p>感染主要改变胃里的环境。这个细菌很少住进结肠。</p>
-          <span class="tagline">不是大肠波动的主因</span>
-        </article>
-        <article class="card">
-          <div class="idx">通路二</div>
-          <h3>药物可能带到肠道</h3>
-          <p>抗生素和抑酸药可能作用到共生菌。可能发生，不是必定。</p>
-          <span class="tagline">方案仍由医生决定</span>
-        </article>
-        <article class="card">
-          <div class="idx">通路三</div>
-          <h3>每个人恢复不同</h3>
-          <p>年龄、用药史和膳食不同，恢复就不同。</p>
-          <span class="tagline">需要单独看，不是统一话术</span>
-        </article>
-      </div>
-
-      <div class="split" style="margin-top:1.6rem">
-        <div>
-          <h3 style="font-size:1.35rem">回来的时间，并不整齐</h3>
-          <ol class="timeline">
-            <li>
-              <div class="when">疗程中</div>
-              <div class="body">
-                <h3>研究里常能测到变化</h3>
-                <p>多样性可能下降。这不等于每个人都会腹泻。</p>
-              </div>
-            </li>
-            <li>
-              <div class="when">约第 8 周</div>
-              <div class="body">
-                <h3>有的人已经接近原来</h3>
-                <p>小样本里，组成可以回到接近用药前。</p>
-              </div>
-            </li>
-            <li>
-              <div class="when">约 1 年</div>
-              <div class="body">
-                <h3>更大样本里变化通常轻微</h3>
-                <p>整体常接近原来。个别方案可能更慢。</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <figure class="frame">
-          <svg viewBox="0 0 800 600" aria-hidden="true">
-            <rect width="800" height="600" fill="#143f40"/>
-            <g fill="#A9C2B5">
-              <circle cx="120" cy="180" r="16" opacity="0.9"/>
-              <circle cx="170" cy="240" r="10" opacity="0.75"/>
-              <circle cx="90" cy="280" r="8" opacity="0.6"/>
-              <circle cx="210" cy="160" r="6" opacity="0.8"/>
-              <circle cx="150" cy="320" r="12" opacity="0.55"/>
-              <circle cx="250" cy="300" r="7" opacity="0.7"/>
-            </g>
-            <g fill="#C8A96A">
-              <circle cx="430" cy="220" r="5" opacity="0.9"/>
-              <circle cx="520" cy="280" r="3.5" opacity="0.7"/>
-              <circle cx="610" cy="190" r="4" opacity="0.8"/>
-              <circle cx="680" cy="340" r="3" opacity="0.6"/>
-            </g>
-            <path d="M80 420C220 360 360 470 560 400" fill="none" stroke="#F7F4EE" stroke-width="1.2" opacity="0.35"/>
-          </svg>
-          <picture>
-            <source type="image/webp" srcset="assets/img/antibiotic-impact.webp">
-            <img src="assets/img/antibiotic-impact.jpg" alt="培养皿与玻璃器皿的静物，示意根除用药期间肠道群落可能出现波动" width="1448" height="1086" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-      </div>
-
     </div>
   </section>
 
   <section class="sec ink" id="path" aria-labelledby="path-title">
-    <div class="wrap sec-pad">
-      <div class="path-grid">
-        <div>
-          <header class="sec-head on-dark">
-            <p class="eyebrow"><span>04</span>美诺微怎么陪你走</p>
-            <h2 id="path-title">根除前、疗程中、疗程后，各做各的事。</h2>
-            <p class="lede">评估、解读，过一段时间再看。不是治疗，也不保证回到某种理想菌群。</p>
-          </header>
-          <div class="pair">
-            <figure class="frame">
-              <svg viewBox="0 0 800 600" aria-hidden="true">
-                <rect width="800" height="600" fill="#123836"/>
-                <rect x="170" y="90" width="460" height="420" rx="28" fill="#0F3D3E" stroke="#A9C2B5" stroke-opacity="0.5"/>
-                <path d="M230 180h280M230 240h210M230 300h250M230 360h160" stroke="#F7F4EE" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
-                <circle cx="560" cy="200" r="36" fill="none" stroke="#C8A96A" stroke-width="2"/>
-                <path d="M548 200l8 9 18-20" fill="none" stroke="#C8A96A" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <picture>
-                <source type="image/webp" srcset="assets/img/microbiome-test.webp">
-                <img src="assets/img/microbiome-test.jpg" alt="试管、培养皿和一份摊开的报告，表示菌群检测用于健康评估参考，不是疾病诊断" width="1448" height="1086" loading="lazy" decoding="async">
-              </picture>
-            </figure>
-            <figure class="frame">
-              <svg viewBox="0 0 800 600" aria-hidden="true">
-                <rect width="800" height="600" fill="#1a4744"/>
-                <path d="M180 430c80-180 180-230 250-200 70 30 90 120 40 200" fill="none" stroke="#A9C2B5" stroke-width="3"/>
-                <path d="M360 250c70-40 150-20 170 40-50 10-90 8-130 30-20-30-30-50-40-70z" fill="#A9C2B5" opacity="0.85"/>
-                <circle cx="300" cy="360" r="6" fill="#C8A96A"/>
-                <circle cx="390" cy="400" r="4" fill="#F7F4EE"/>
-                <circle cx="470" cy="340" r="5" fill="#C8A96A"/>
-              </svg>
-              <picture>
-                <source type="image/webp" srcset="assets/img/probiotic-restore.webp">
-                <img src="assets/img/probiotic-restore.jpg" alt="浅碗中的粉末、培养皿与木勺，示意膳食和益生菌只是分层的养护参考" width="1448" height="1086" loading="lazy" decoding="async">
-              </picture>
-            </figure>
-          </div>
-        </div>
-        <div>
-          <ol class="steps">
-            <li class="step" id="test">
-              <div class="idx">01 · 根除前</div>
-              <h3>基线评估</h3>
-              <p>服药前了解群落结构。这是健康参考，不能代替呼气试验。</p>
-            </li>
-            <li class="step">
-              <div class="idx">02 · 疗程中</div>
-              <h3>配合医嘱，不另起炉灶</h3>
-              <p>方案听医生的。双歧、乳杆菌通常错开 2–3 小时；布拉氏酵母菌、丁酸梭菌、芽孢杆菌可以同服。以说明书和医嘱为准。</p>
-            </li>
-            <li class="step">
-              <div class="idx">03 · 疗程后</div>
-              <h3>解读，再谈养护参考</h3>
-              <p>把报告讲清楚，再谈益生菌和膳食。不是人人适用，也不是处方。</p>
-            </li>
-            <li class="step">
-              <div class="idx">04 · 隔一段时间</div>
-              <h3>复测，看变化而不是下诊断</h3>
-              <p>再测一次看变化。节奏按用药节点来，不套固定周期。</p>
-            </li>
-          </ol>
-          <p class="price" data-contact="price"><b>肠道菌群检测 ¥2199</b><span>具体项目以咨询为准</span></p>
-          <div class="ladder">
-            <div class="rung">
-              <b>一</b>
-              <div><b>源头减损</b><p>不自行加长抗生素，把用药史告诉医生。</p></div>
-            </div>
-            <div class="rung">
-              <b>二</b>
-              <div><b>主动保护</b><p>益生菌按菌株看。美诺微不宣称提高根除率。</p></div>
-            </div>
-            <div class="rung">
-              <b>三</b>
-              <div><b>生态重建</b><p>移植仍属早期。只在有资质的医疗机构由医生评估。</p></div>
-            </div>
-            <div class="rung">
-              <b>四</b>
-              <div><b>宿主这边的支持</b><p>膳食和作息是生活方式方向。有病先问医生。</p></div>
-            </div>
-          </div>
-        </div>
+    <div class="wrap">
+      <header class="sec-head on-dark">
+        <p class="eyebrow"><span>04</span>怎么走</p>
+        <h2 id="path-title">根除前看一眼，之后再看。</h2>
+        <p class="lede">先留基线，再看变化。不是另一套治疗。</p>
+      </header>
+      <div class="pair">
+        <figure class="frame">
+          <svg viewBox="0 0 800 600" aria-hidden="true"><rect width="800" height="600" fill="#123836"/></svg>
+          <picture>
+            <source type="image/webp" srcset="assets/img/microbiome-test.webp">
+            <img src="assets/img/microbiome-test.jpg" alt="试管、培养皿和一份报告，表示菌群检测用于健康评估，不是诊断" width="1200" height="900" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="frame">
+          <svg viewBox="0 0 800 600" aria-hidden="true"><rect width="800" height="600" fill="#1a4744"/></svg>
+          <picture>
+            <source type="image/webp" srcset="assets/img/probiotic-restore.webp">
+            <img src="assets/img/probiotic-restore.jpg" alt="浅碗中的粉末、培养皿与木勺，示意膳食和益生菌只是养护参考" width="1200" height="900" loading="lazy" decoding="async">
+          </picture>
+        </figure>
       </div>
+      <p class="price" data-contact="price"><b>肠道菌群检测 ¥2199</b><span>具体项目以咨询为准</span></p>
     </div>
     <div class="curve" aria-hidden="true">
       <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
@@ -365,21 +212,15 @@
     <div class="wrap">
       <article class="companion-card">
         <div>
-          <p class="eyebrow"><span>免费工具</span>用药与观察</p>
+          <p class="eyebrow"><span>免费工具</span>即将上线</p>
           <h2 id="companion-title">杀幽 42 天陪跑</h2>
-          <p class="lede">14 天用药陪伴，加停药后 28 天的观察和复测倒计时。只记医嘱里的节点，不改方案，也不判断是否根除。</p>
-          <ul class="day-split">
-            <li><b>14 天</b><span>用药陪伴。医生怎么开，就按那个节奏记。</span></li>
-            <li><b>28 天</b><span>停药后的观察，以及复测倒计时。</span></li>
-          </ul>
+          <p class="lede">14 天记用药，28 天看复测。即将上线，不改方案。</p>
           <div class="btn-row">
             <a class="btn btn-gold" href="#consult" data-topic="杀幽 42 天陪跑上线通知">上线时通知我</a>
             <span class="badge-soon">即将上线</span>
           </div>
-          <p class="hero-note">免费。上线前还不能使用。它是提醒工具，不能替代医生诊断与治疗。</p>
         </div>
         <div class="companion-mark" aria-hidden="true">
-          <span class="badge-soon">即将上线</span>
           <strong>42</strong>
           <em>14 + 28 天</em>
         </div>
@@ -387,151 +228,38 @@
     </div>
   </section>
 
-  <section class="sec" id="who" aria-labelledby="who-title">
+  <section class="sec brief" id="who" aria-labelledby="who-title">
     <div class="wrap">
       <header class="sec-head">
         <p class="eyebrow"><span>05</span>适合谁</p>
-        <h2 id="who-title">准备根除的人，和已经做完的人。</h2>
-        <p class="lede">年龄不是门槛。更长期的照顾称为年轻态：一种可持续的状态，不是这次的承诺。</p>
+        <h2 id="who-title">准备根除，或已经做完。</h2>
+        <p class="lede">年龄不是门槛。方案听医生的。</p>
       </header>
-      <div class="who-grid">
-        <article class="who-card">
-          <h3>医生建议根除，药还没开始</h3>
-          <p>先留一份服药前的基线。方案仍和医生确认。</p>
-        </article>
-        <article class="who-card">
-          <h3>这两周正在服药</h3>
-          <p>先把医嘱吃完。不要自行停药、加药或改剂量。</p>
-        </article>
-        <article class="who-card">
-          <h3>疗程已经结束</h3>
-          <p>若仍在意腹胀或大便，检测可以是一次健康评估的起点。</p>
-        </article>
-        <article class="who-card">
-          <h3>恢复可能更慢的人</h3>
-          <p>长期用过抗生素的人，恢复可能更慢。这不是疗效承诺。</p>
-        </article>
-      </div>
-      <p class="limit">黑便、呕血、持续剧痛或短期明显消瘦，请立即就医。要不要根除，由医生决定。</p>
-    </div>
-  </section>
-
-  <section class="sec mist" id="evidence" aria-labelledby="evidence-title">
-    <div class="wrap">
-      <header class="sec-head">
-        <p class="eyebrow"><span>06</span>证据说到哪一步</p>
-        <h2 id="evidence-title">我们把话说到证据停住的地方。</h2>
-        <p class="lede">三句话看方向。样本、百分比和文献收在下面，打开才出现。</p>
-      </header>
-      <div class="grades">
-        <article class="grade-card">
-          <span class="pill mid">方向较一致</span>
-          <h3>短期可能有波动</h3>
-          <p>结束后数周，多样性可能下降。多数人不会因此腹泻。</p>
-        </article>
-        <article class="grade-card">
-          <span class="pill low">因人而异</span>
-          <h3>许多人会慢慢回来</h3>
-          <p>八周到一年，组成常接近原来。个别方案可能更慢。</p>
-        </article>
-        <article class="grade-card">
-          <span class="pill mix">看菌株</span>
-          <h3>益生菌不是通用修复</h3>
-          <p>不宣称提高根除率。间隔因菌株而异，以说明书和医嘱为准。</p>
-        </article>
-      </div>
-      <details class="research" id="research">
-        <summary>研究依据</summary>
-        <p>根除可能影响肠道菌群，因人而异。下面的数字来自已发表研究，样本和方案都不相同，不能当成你的化验单。测序结果是预测性参考。</p>
-        <div class="study">
-          <div class="panel">
-            <h3>一个很小的样本里，变化可以很陡</h3>
-            <p class="src">这不是多数人的结局。Hsu 等，2018：14 天铋剂四联，完成随访只有 11 人。浅色是该项基线，深色是治疗结束时还剩下的比例，不是占整个肠道的百分比。第 8 周已接近基线。</p>
-            <div class="bar" role="img" aria-label="拟杆菌门由 24.3% 降至 0.5%，放线菌门由 5.0% 降至 1.3%，疣微菌门由 3.2% 降至约 0。样本 11 人。">
-              <div class="row"><b>拟杆菌门</b><span>24.3% → 0.5%</span></div>
-              <div class="track"><span class="base"></span><span class="now" style="width:2%"></span></div>
-            </div>
-            <div class="bar">
-              <div class="row"><b>放线菌门</b><span>5.0% → 1.3%</span></div>
-              <div class="track"><span class="base"></span><span class="now" style="width:26%"></span></div>
-            </div>
-            <div class="bar">
-              <div class="row"><b>疣微菌门</b><span>3.2% → 约 0</span></div>
-              <div class="track"><span class="base"></span><span class="now" style="width:2%"></span></div>
-            </div>
-            <p class="fine">变形菌门在结束时升高（P&lt;0.001）。出现不适的人更高（68.7%±8.8% 对 43.4%±25.5%，P=0.048）。第 48 周与基线无显著差异。<sup><a href="#ref-1">1</a></sup></p>
-          </div>
-          <aside class="panel aside-note">
-            <h3>更大的样本</h3>
-            <p>Liou 等随机 1620 人，1214 人完成一年随访。整体变化轻微。含甲硝唑的方案，多样性仍偏低。血脂和胰岛素抵抗的变化是治疗研究里的观察，不是保健品效果。<sup><a href="#ref-2">2</a></sup></p>
-            <p>中国指南里，甲硝唑耐药率约为 60%–90%，克拉霉素和左氧氟沙星约为 20%–40%。方案由医生选。<sup><a href="#ref-3">3</a></sup></p>
-            <p>6 人的一项早期研究里，部分类群的改变持续到约 4 年。只说明有个体差异，不能当成时间表。<sup><a href="#ref-9">9</a></sup></p>
-          </aside>
-        </div>
-        <p>12 例配对粪便研究发现，根除后耐药基因可能扩增，包括这次没用到的抗生素。样本小，能持续多久还不清楚。<sup><a href="#ref-5">5</a></sup></p>
-        <p>指南对「铋剂四联联合益生菌」是有条件推荐，主要涉及腹泻等不适，不代表提高根除率。一项 276 人、28 天的试验里，胃肠道不适为 23.6% 对 37.7%（P=0.016），根除率没有显著差异。那不是美诺微产品的数据。<sup><a href="#ref-3">3</a></sup><sup><a href="#ref-7">7</a></sup></p>
-        <p>两项荟萃分析结论相反：40 项研究、8924 例报告根除率更高；21 项研究、3520 例报告不能提高。综述未单列题录。美诺微不使用「提高根除率」。</p>
-        <p>抗生素之后使用多菌株益生菌，黏膜菌群恢复可能更慢。所以它不是普遍修复剂。<sup><a href="#ref-6">6</a></sup> 间隔也因菌株而异：双歧杆菌、乳杆菌通常与抗生素错开 2–3 小时；布拉氏酵母菌（<i>Saccharomyces boulardii</i>）、丁酸梭菌（<i>Clostridium butyricum</i>）、芽孢杆菌（<i>Bacillus</i>）可以同服。以说明书和医嘱为准。</p>
-        <p>粪菌移植仍是早期探索，只在有资质的医疗机构由执业医师评估。膳食纤维的文献参考量大约每天 30 克，另有发酵食品的讨论。有疾病或饮食限制时问医生。<sup><a href="#ref-8">8</a></sup></p>
-        <p>研究里的「恢复」常常指回到用药前。用药前本身是感染期间的菌群。消化性溃疡、胃癌家族史，以及萎缩或肠化，共识列为强烈建议根除的情形。无症状、又没有危险因素，要不要根除由医生和你讨论。<sup><a href="#ref-4">4</a></sup></p>
-      </details>
     </div>
   </section>
 
   <section class="sec" id="faq" aria-labelledby="faq-title">
     <div class="wrap">
       <header class="sec-head">
-        <p class="eyebrow"><span>07</span>常见问题</p>
-        <h2 id="faq-title">先把几件容易误会的事说清。</h2>
+        <p class="eyebrow"><span>06</span>问答</p>
+        <h2 id="faq-title">四件容易误会的事。</h2>
       </header>
       <div>
         <details class="faq">
-          <summary>根除治疗还要不要做？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>要不要做、用什么方案，听医生的。检测和益生菌不能代替根除，也不要自行停药。</p>
-          </div>
+          <summary>根除还要不要做？<span class="chev" aria-hidden="true"></span></summary>
+          <div class="faq-body"><p>听医生的。检测不能代替根除。</p></div>
         </details>
         <details class="faq">
-          <summary>根除一定会伤到肠道菌群吗？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>不是必定，因人而异。多数人不会腹泻。许多人在八周到一年内接近原来；个别方案可能更慢。</p>
-          </div>
+          <summary>根除一定会伤到菌群吗？<span class="chev" aria-hidden="true"></span></summary>
+          <div class="faq-body"><p>不是必定，因人而异。多数人不会腹泻。</p></div>
         </details>
         <details class="faq">
-          <summary>肠道菌群检测是诊断吗？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>不是。它是健康评估，不能代替医生诊断，也不能代替呼气试验确认是否根除。</p>
-          </div>
+          <summary>检测是诊断吗？<span class="chev" aria-hidden="true"></span></summary>
+          <div class="faq-body"><p>不是。用于健康评估，不能代替呼气试验。</p></div>
         </details>
         <details class="faq">
-          <summary>益生菌一定要和抗生素隔开 3 小时吗？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>不要套一个间隔。双歧杆菌、乳杆菌通常错开 2–3 小时；布拉氏酵母菌、丁酸梭菌、芽孢杆菌可以同服。以说明书和医嘱为准。</p>
-          </div>
-        </details>
-        <details class="faq">
-          <summary>益生菌能让根除更容易成功吗？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>不能这样说。不同研究结论相反。美诺微不把益生菌说成提高根除率的办法。</p>
-          </div>
-        </details>
-        <details class="faq">
-          <summary>多久可以恢复？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>没有可以写死的天数。许多人八周到一年接近原来，也有人更慢。回到用药前，不等于理想状态。</p>
-          </div>
-        </details>
-        <details class="faq">
-          <summary>什么时候才会谈到菌群移植？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>只有医学上合适时，由有资质医疗机构的医生评估。美诺微不在网上做移植。</p>
-          </div>
-        </details>
-        <details class="faq">
-          <summary>我从哪一步开始比较合适？<span class="chev" aria-hidden="true"></span></summary>
-          <div class="faq-body">
-            <p>还没吃药：可以先留基线。正在吃：先完成医嘱。已经结束：检测可作评估起点。医疗上的决定问医生。</p>
-          </div>
+          <summary>益生菌一定要隔开 3 小时吗？<span class="chev" aria-hidden="true"></span></summary>
+          <div class="faq-body"><p>不要套一个间隔。看菌株、说明书和医嘱。</p></div>
         </details>
       </div>
     </div>
@@ -542,9 +270,9 @@
       <div class="consult-grid">
         <div>
           <header class="sec-head">
-            <p class="eyebrow"><span>08</span>预约咨询</p>
+            <p class="eyebrow"><span>07</span>预约咨询</p>
             <h2 id="consult-title">把你的阶段告诉我们。</h2>
-            <p class="lede">了解检测、报告和养护参考，不构成诊疗。移植只讨论要不要去有资质的医院评估。</p>
+            <p class="lede">了解检测和养护，不构成诊疗。</p>
           </header>
           <figure class="frame">
             <svg viewBox="0 0 800 600" aria-hidden="true">
@@ -621,7 +349,7 @@
 
 <footer class="footer">
   <div class="wrap">
-    <p class="disclaimer">本网站内容仅供健康科普参考，不能替代医生诊断与治疗。肠道菌群检测用于健康评估，不用于疾病诊断，也不能代替医学检查确认幽门螺杆菌是否根除。益生菌与膳食建议不是疗效承诺。微生物群移植仅在有资质的医疗机构由执业医师评估。</p>
+    <p class="disclaimer">本网站内容仅供健康科普参考，不能替代医生诊断与治疗。</p>
     <div class="foot-grid">
       <div>
         <h2 data-contact="company">美诺微</h2>
@@ -647,8 +375,9 @@
         <p>不提供在线诊疗。</p>
       </div>
     </div>
-    <details class="sources">
-      <summary>本页引用的文献（编号按本页顺序，并注明综述原编号）</summary>
+    <details class="sources" id="evidence">
+      <summary>研究依据与参考文献</summary>
+      <p>根除可能影响菌群，因人而异。多数人不会腹泻；许多人在八周到一年内接近原来；含甲硝唑的方案可能更慢。益生菌间隔因菌株而异：双歧杆菌、乳杆菌通常错开 2–3 小时；布拉氏酵母菌、丁酸梭菌、芽孢杆菌可以同服。以说明书和医嘱为准。不宣称提高根除率。菌群移植只在有资质的医疗机构由医生评估。</p>
       <ol class="refs">
         <li id="ref-1">Hsu PI, Pan CY, Kao JY, et al. Helicobacter pylori eradication with bismuth quadruple therapy leads to dysbiosis of gut microbiota with an increased relative abundance of Proteobacteria and decreased relative abundances of Bacteroidetes and Actinobacteria. Helicobacter. 2018;23(4):e12498. <a href="https://doi.org/10.1111/hel.12498">doi:10.1111/hel.12498</a>（综述文献 2）</li>
         <li id="ref-2">Liou JM, Chen CC, Chang CM, et al. Long-term changes of gut microbiota, antibiotic resistance, and metabolic parameters after Helicobacter pylori eradication: a multicentre, open-label, randomised trial. Lancet Infect Dis. 2019;19(10):1109-1120. <a href="https://doi.org/10.1016/S1473-3099(19)30272-5">doi:10.1016/S1473-3099(19)30272-5</a>（综述文献 3）</li>
@@ -660,7 +389,7 @@
         <li id="ref-8">Wastyk HC, Fragiadakis GK, Perelman D, et al. Gut-microbiota-targeted diets modulate human immune status. Cell. 2021;184(16):4137-4153.e14.（综述文献 15）</li>
         <li id="ref-9">Jakobsson HE, Jernberg C, Andersson AF, et al. Short-term antibiotic treatment has differing long-term impacts on the human throat and gut microbiome. PLoS ONE. 2010;5(3):e9836.（综述文献 5）</li>
       </ol>
-      <p>页面中的机制、证据分级和研究数字，整理自《幽门螺杆菌对肠道菌群的破坏机制与修复方案》循证综述（编制日期 2026 年 10 月 16 日）及其所列文献。两项关于根除率的荟萃分析（40 项 / 8924 例，21 项 / 3520 例）仅在综述正文中转述，未给出单独题录，故本页不另编参考文献。综述同时声明：菌群组成与功能推断来自测序，属预测性结论；临床方案应由执业医师决定。</p>
+      <p>整理自《幽门螺杆菌对肠道菌群的破坏机制与修复方案》（2026-10-16）。两项荟萃分析只在综述中转述，未另编题录。</p>
     </details>
     <p class="legal" data-contact="copyright">©2026 美诺微（杭州）健康科技有限公司 · mnwei.com · 本页为静态介绍，未接入在线交易与在线诊疗。</p>
   </div>
