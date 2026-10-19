@@ -49,8 +49,10 @@ def main() -> int:
 
     with zipfile.ZipFile(OUT) as zf:
         names = zf.namelist()
-    if "index.html" not in names:
-        print("zip missing index.html at root", file=sys.stderr)
+    required = ("index.html", "assets/img/wechat-qr.jpg")
+    missing = [name for name in required if name not in names]
+    if missing:
+        print("zip missing " + ", ".join(missing), file=sys.stderr)
         return 1
     if any(name.startswith("/") or name.startswith("..") for name in names):
         print("unsafe zip path", file=sys.stderr)

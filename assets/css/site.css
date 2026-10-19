@@ -937,29 +937,38 @@ h3 { font-size: 1.2rem; }
 @media (min-width: 900px) {
   .consult-grid { grid-template-columns: 0.9fr 1.1fr; gap: 2rem; align-items: start; }
 }
-.qr-row {
+.qr-block {
   display: flex;
-  gap: 0.9rem;
   align-items: center;
-  margin-top: 1.1rem;
+  gap: 0.9rem;
+  margin: 1.1rem 0 0;
 }
-.qr {
-  width: 132px;
-  height: 132px;
+.qr-block img {
+  width: 148px;
+  height: 148px;
   flex: none;
   border-radius: 16px;
-  border: 1px dashed rgba(110, 84, 48, 0.55);
-  background:
-    repeating-linear-gradient(90deg, rgba(15, 61, 62, 0.05) 0 1px, transparent 1px 10px),
-    repeating-linear-gradient(0deg, rgba(15, 61, 62, 0.05) 0 1px, transparent 1px 10px),
-    var(--paper);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 0.5rem;
-  color: var(--gold-ink);
-  font-size: 0.78rem;
-  line-height: 1.45;
+  object-fit: cover;
+  background: var(--ivory);
+}
+.qr-block figcaption {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+.foot-qr {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.7rem;
+}
+.foot-qr img {
+  width: 72px;
+  height: 72px;
+  flex: none;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--ivory);
 }
 .tag-pending {
   display: inline-flex;
