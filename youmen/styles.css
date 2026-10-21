@@ -2,3 +2,60 @@
 
 /* Task first: the opening card contains the next action, not only a greeting. */
 .hero .nexttime{font-family:Georgia,serif;font-size:47px;line-height:1;margin:8px 0 9px;letter-spacing:-1px}.hero .nexttitle{font-size:14px;color:#e1ead9;position:relative;z-index:1}.hero .lightbtn{margin-top:17px;position:relative;z-index:1}.hero .herotag{margin-top:13px;font-size:9px;padding:2px 9px}.hero{min-height:265px}.hero .herographic{bottom:0;right:-8px}.heading h1{letter-spacing:-.8px}@media(max-width:720px){.heading:has(.datechip){display:block}.heading .datechip{display:none}.heading h1{font-size:24px}.hero{min-height:244px;padding:23px 25px}.hero .nexttime{font-size:43px;margin:9px 0}.hero .nexttitle{font-size:13px}.hero .herographic{width:205px;height:215px;right:-24px;opacity:.75}main{padding-top:22px}.heading{margin-bottom:20px}.hero .lightbtn{margin-top:14px}.hero .herotag{margin-top:11px}}@media(max-width:375px){.heading h1{font-size:22px}.hero{padding:21px 23px;min-height:238px}.hero .herographic{opacity:.65;right:-35px}}
+
+/* First-use onboarding and stable mobile app shell. Pinch zoom remains available. */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body.onboarding-mode{min-height:100dvh;background:linear-gradient(135deg,#f5f6ef,#eef3eb 54%,#f8f4ec)}
+body.onboarding-mode .sidebar,body.onboarding-mode .topbar,body.onboarding-mode .pagefoot,body.onboarding-mode .bottomnav{display:none!important}
+body.onboarding-mode .workspace{margin:0;min-height:100dvh}
+body.onboarding-mode main{max-width:none;min-height:100dvh;margin:0;padding:clamp(20px,4vw,56px);display:grid;place-items:center}
+.welcome{width:min(620px,100%);min-height:0;background:#fff;border:1px solid #e7ebe4;border-radius:27px;box-shadow:0 24px 80px #193d3210;display:block;overflow:hidden;position:relative}
+.welcome-brand{position:absolute;left:48px;top:36px;display:flex;align-items:center;gap:10px;color:var(--green)}
+.welcome-brand .brandmark{width:38px;height:38px;font-size:39px}
+.welcome-brand .brandmark span{font-size:28px}
+.welcome-brand strong{font-size:17px;letter-spacing:2px}.welcome-brand small{display:block;font-size:8px;letter-spacing:1.8px;color:#8b9a8e}
+.welcome-content{padding:clamp(95px,12vh,116px) clamp(24px,5vw,50px) 34px}
+.welcome-content h1,.setup-card h1{font-size:clamp(28px,3.1vw,39px);line-height:1.45;letter-spacing:-1px;font-weight:500;color:#193d38;margin:0 0 12px}
+.welcome-copy{color:#75847a;font-size:13px;line-height:1.9;margin:0 0 24px}
+.welcome-cards{display:grid;gap:10px;margin:23px 0 17px}
+.welcome-choice,.role-option{width:100%;min-height:68px;padding:13px 16px;border:1px solid #e5eae2;background:#fff;border-radius:15px;display:flex;align-items:center;gap:13px;text-align:left;transition:border-color .16s,background .16s}
+.welcome-choice:hover,.role-option:hover{border-color:#9db5a3;background:#fbfcf8}
+.welcome-choice.selected,.role-option.selected{border-color:#3e7666;background:#f2f6ef;box-shadow:0 0 0 2px #3e766612}
+.welcome-choice>span:nth-child(2),.role-option>span:nth-child(2){flex:1;min-width:0}
+.welcome-choice strong,.role-option strong{display:block;font-size:13px;font-weight:550;color:#29443b}
+.welcome-choice small,.role-option small{display:block;color:#8b968b;font-size:10px;margin-top:3px}
+.welcome-choice>.ico{width:16px;height:16px;color:#99a69a}
+.choice-dot{width:17px;height:17px;border:1px solid #c5d0c4;border-radius:50%;display:grid;place-items:center;flex:0 0 auto}
+.selected .choice-dot{border-color:var(--green)}.selected .choice-dot:after{content:'';width:9px;height:9px;border-radius:50%;background:var(--green)}
+.welcome-next{min-height:50px;border-radius:13px;margin-top:2px}
+.welcome-foot{font-size:9px;color:#9aa49a;line-height:1.7;margin:13px 0 0}
+.setup-screen{width:min(520px,100%);margin:auto}.setup-screen>.backlink{margin-bottom:15px}
+.setup-card{padding:clamp(24px,5vw,44px);border:1px solid #e5eae2;border-radius:24px;background:#fff;box-shadow:0 18px 55px #173d3510}
+.setup-progress{display:flex;align-items:center;gap:7px;margin-bottom:32px}.setup-progress span{height:4px;width:34px;border-radius:5px;background:#e7ebe3}.setup-progress span.done{background:#5c8571}.setup-progress small{margin-left:5px;color:#98a197;font-size:9px}
+.role-options{display:grid;gap:10px;margin:22px 0}
+.setup-summary{border-radius:13px;background:#f5f7f1;padding:13px 15px;margin:19px 0;display:flex;justify-content:space-between;gap:12px;font-size:10px;color:#78867b}.setup-summary strong{color:#405b4a;font-weight:550}
+@media(max-width:720px){
+ html,body{height:100%;overscroll-behavior:none}
+ body:not(.onboarding-mode){height:100dvh;overflow:hidden}
+ body:not(.onboarding-mode) .workspace{height:100dvh;margin:0;display:flex;flex-direction:column;overflow:hidden}
+ body:not(.onboarding-mode) .topbar{height:58px;min-height:58px;flex:0 0 58px;margin:0;padding:0 16px;border-bottom:1px solid #e5eae2}
+ body:not(.onboarding-mode) main{height:0;min-height:0;flex:1 1 auto;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:20px 18px calc(22px + env(safe-area-inset-bottom))}
+ body:not(.onboarding-mode) .pagefoot{display:none}
+ body:not(.onboarding-mode) .bottomnav{position:relative;left:auto;right:auto;bottom:auto;flex:0 0 auto;padding:7px 8px calc(7px + env(safe-area-inset-bottom));backdrop-filter:blur(18px)}
+ body:not(.onboarding-mode) #toast{bottom:calc(78px + env(safe-area-inset-bottom))}
+ body.onboarding-mode main{padding:12px;min-height:100dvh}
+ .welcome{min-height:0;grid-template-columns:1fr;border-radius:22px}
+ .welcome-brand{left:22px;top:20px}.welcome-brand .brandmark{font-size:34px;width:32px;height:32px}.welcome-brand .brandmark span{font-size:24px}
+ .welcome-content{padding:82px 22px 22px;align-self:center}
+ .welcome-content h1,.setup-card h1{font-size:27px}
+ .welcome-copy{font-size:11px;margin-bottom:17px}
+ .welcome-cards{gap:8px;margin:16px 0 12px}
+ .welcome-choice{min-height:59px;padding:10px 12px}
+ .welcome-choice strong,.role-option strong{font-size:12px}
+ .setup-screen{width:100%;padding:5px}
+ .setup-card{padding:25px 20px;border-radius:21px}
+ .setup-progress{margin-bottom:25px}
+ .setup-summary{display:block}.setup-summary span{display:block;margin-top:4px}
+ .chatbottom{position:sticky;bottom:0;z-index:3;padding-bottom:calc(4px + env(safe-area-inset-bottom))}
+}
+.chatinput .voicebtn{background:#e8eee4;color:var(--green)}.chatinput .voicebtn:hover{background:#dce7d9}

@@ -1,6 +1,6 @@
 'use strict';
 // Only the public prototype shell is cached. Health files and inputs are never cached.
-const CACHE='minova-care-prototype-v0.1-20261021';
+const CACHE='minova-care-prototype-v0.2-20261021';
 const ASSETS=['./index.html','./styles.css','./app.js','./icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(self.clients.claim());});
